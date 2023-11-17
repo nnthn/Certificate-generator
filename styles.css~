@@ -1,0 +1,39 @@
+* {
+    -webkit-print-color-adjust: exact !important;   /* Chrome, Safari 6 – 15.3, Edge */
+    color-adjust: exact !important;                 /* Firefox 48 – 96 */
+    print-color-adjust: exact !important;           /* Firefox 97+, Safari 15.4+ */
+}
+
+:root{
+    font-family: Ubuntu, sans-serif;
+}
+body {
+    margin: auto;
+
+}
+p{
+    position: absolute;
+}
+.id{
+    top: 285px;
+    left: 1597px;
+    font-size:24px;
+}
+.certifi{
+    width: 1920px;
+    height: 1080px;
+    background-image: url("./certificate.svg");
+    display: flex;
+}
+.para{
+    top: 572px;
+    margin: 0 8rem;
+    font-size: 2rem;
+    text-align:justify;
+}
+@page{
+    size: 1920px 1080px;
+    .certifi{
+	display:block;
+    }
+}
