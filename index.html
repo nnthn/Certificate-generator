@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>certifcate</title>
+    <title></title>
     <link rel="stylesheet" href="./styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -29,18 +29,24 @@
 		  rows.slice(1).map(function (row) {
                       const values = row.split(',');
 		      console.log(values);
-		      exportPDF(header,values,1920,1080);
+		      if (values[0]) {
+			  exportPDF(header,values,1920,1080);
+		      }
 		  });
 
 	      })
 	      .catch(function (error){
 		  console.error('error fetching data:',error);
-      });
+	      });
       });
       
       function exportPDF(headers,values,width,height){
+	  let name;
 	  for (i in headers) {
 	      document.getElementById(headers[i]).innerText=values[i];
+	      if(headers[i]==='name'){
+		  name=values[i];
+	      }
 	  }
 	  
           // Select the certificate div
@@ -68,8 +74,6 @@
           });
       };
     </script>
-    
- 
   </body>
 
 </html>
