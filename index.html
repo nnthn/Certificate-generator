@@ -44,9 +44,6 @@
 	  let name;
 	  for (i in headers) {
 	      document.getElementById(headers[i]).innerText=values[i];
-	      if(headers[i]==='name'){
-		  name=values[i];
-	      }
 	  }
 	  
           // Select the certificate div
@@ -70,7 +67,7 @@
               pdf.addImage(imgData, 'PNG', 0, 0,width,height);
 
               // Download the PDF
-              pdf.save('certificate.pdf');
+              pdf.save(values.join('-').replace(/ /g, '_') + '.pdf');
           });
       };
     </script>
